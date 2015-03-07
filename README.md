@@ -1,2 +1,2 @@
-# s3-backup
+# s3backup
 Go tool to send backups to s3
