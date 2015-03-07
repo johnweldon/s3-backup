@@ -7,7 +7,7 @@ import (
 	"gopkg.in/amz.v3/aws"
 	"gopkg.in/amz.v3/s3"
 
-	"github.com/johnweldon/s3-backup/config"
+	"github.com/johnweldon/s3backup/config"
 )
 
 func main() {
