@@ -107,6 +107,11 @@ func (p *Plan) initialize() {
 		}
 	}()
 
+	if p.Settings == nil {
+		err = fmt.Errorf("could not find settings")
+		return
+	}
+
 	p.server = s3.New(p.Settings.Auth, p.Settings.Region)
 	p.ensureBucket()
 }
