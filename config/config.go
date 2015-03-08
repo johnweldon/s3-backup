@@ -7,12 +7,15 @@ import (
 	"gopkg.in/amz.v3/aws"
 )
 
+// Settings describes user specified options.
 type Settings struct {
 	aws.Auth   `json:"auth,omitempty"`
 	aws.Region `json:"region,omitempty"`
 	Bucket     string `json:"bucket,omitempty"`
 }
 
+// Read attempts to read Settings from a file, and
+// returns an error if it fails.
 func Read(path string) (*Settings, error) {
 	var s Settings
 	var buf []byte
@@ -26,6 +29,7 @@ func Read(path string) (*Settings, error) {
 	return &s, nil
 }
 
+// Write serializes the Settings to a file in JSON format.
 func (s *Settings) Write(path string) error {
 	var buf []byte
 	var err error
