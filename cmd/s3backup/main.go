@@ -28,11 +28,14 @@ func main() {
 		settings = generateConf(configFile)
 	}
 
-	plan := worker.NewPlan(settings, flag.Args())
-	err = plan.Execute()
-	if err != nil {
-		logf("problem: %s\n", err)
-		os.Exit(-1)
+	files := flag.Args()
+	if len(files) > 0 {
+		plan := worker.NewPlan(settings, flag.Args())
+		err = plan.Execute()
+		if err != nil {
+			logf("problem: %s\n", err)
+			os.Exit(-1)
+		}
 	}
 }
 
